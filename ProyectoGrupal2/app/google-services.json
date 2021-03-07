@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "628917584829",
+    "firebase_url": "https://proyectogrupal-3098b-default-rtdb.firebaseio.com",
+    "project_id": "proyectogrupal-3098b",
+    "storage_bucket": "proyectogrupal-3098b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:628917584829:android:bb52b0bcc08c047a4c48d4",
+        "android_client_info": {
+          "package_name": "com.example.proyectogrupal2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "628917584829-sh66urgjq3g8nqvqgr7eec7lfbh7ggc5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7sO6DPLykFek7c3qFqrU5ma1jlJW8hWw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "628917584829-sh66urgjq3g8nqvqgr7eec7lfbh7ggc5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
