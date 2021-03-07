@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
+import android.os.Handler;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     List<Producto> productos;
 
     Adapter adapter;
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         rv = (RecyclerView) findViewById(R.id.recycler);
+        swipeRefreshLayout = findViewById(R.id.refreshLayout);
 
         rv.setLayoutManager(new LinearLayoutManager(this));
 
@@ -39,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         adapter = new Adapter(productos);
 
         rv.setAdapter(adapter);
+
+
 
         database.getReference().getRoot().addValueEventListener(new ValueEventListener() {
             @Override
@@ -57,5 +63,25 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+
+            @Override
+            public void onRefresh() {
+                rv.setAdapter(adapter);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        swipeRefreshLayout.setRefreshing(false);
+
+                    }
+                }, 4*10000);
+
+
+            }
+        });
+
+
     }
+
 }
